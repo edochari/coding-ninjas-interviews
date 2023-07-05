@@ -18,9 +18,10 @@ const studentSchema = new mongoose.Schema({
     ReactFinalScore:{
         type:Number,
     },
-    Interviews:{
-        ref:'Interviews'
-    },
+    Interviews:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Interviews',
+    }],
     
 },{
     timestamps:true

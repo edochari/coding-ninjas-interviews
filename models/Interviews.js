@@ -5,9 +5,18 @@ const InterviewSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
-    studentId:{
+    date:{
+        type:Date,
+    },
+    Students:[{
+        studentId:{
+        type:mongoose.Schema.Types.ObjectId,
         ref:'Students',
-    }
+    },
+      Result:{
+        type:Boolean,
+      }
+}]
     
 },{
     timestamps:true
