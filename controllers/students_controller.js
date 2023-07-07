@@ -12,9 +12,20 @@ module.exports.create = async function(req,res){
 }
 module.exports.StudentsPage = async function(req,res){
    let Student = await Students.find({});
-   console.log(Student);
+   
     return res.render('students',{
         title:'students',
         students:Student,
     })
+}
+
+module.exports.exportStudent = async function(req,res){
+    try{
+       let Students = [];
+
+       let studentData = 
+    }catch(err){
+        console.log("Error in creating csv",err);
+        return ;
+    }
 }
