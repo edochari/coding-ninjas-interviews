@@ -53,6 +53,7 @@ app.use(passport.setAuthenticatedUser);
 //use the router
 app.use('/',require('./routes/index'));
 
+app.use(express.static(__dirname));
 
 app.listen(port, function(err){
     if(err){

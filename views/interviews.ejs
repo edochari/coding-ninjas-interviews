@@ -1,0 +1,31 @@
+<div>
+    <ul>
+        <li>
+            <% for(interview of Interviews){%>
+                <%= interview.companyName %>
+                <% for(let student of interview.Students){%>
+                    <%= student.n%>
+                <%}%>
+                
+                
+            <%}%>
+        </li>
+    </ul>
+
+</div>
+
+<form action="/students/Interviews/create" method="POST">
+    <input type="text" name="companyName" placeholder="Enter Company name" />
+    <select class="selectStudent" name="Students">
+        
+            <% students.forEach(function(student){ %>
+            <option value="<%= student.id %>"><%= student.name %></option>
+            <% }) %>
+        
+    </select>
+    <button type="submit">Submit</button>
+</form>
+
+<script type="text/javascript" src="/assets/js/interviews.js">
+
+</script>

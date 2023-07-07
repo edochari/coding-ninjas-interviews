@@ -7,7 +7,7 @@ const studentSchema = new mongoose.Schema({
     },
     batch:{
         type:String,
-        required:true,
+        // required:true,
     },
     DSAFinalScore:{
         type:Number,
