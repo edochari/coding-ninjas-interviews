@@ -8,11 +8,11 @@ const InterviewSchema = new mongoose.Schema({
     date:{
         type:Date,
     },
-    Students:[{
+    students:[{
         
         
         type:mongoose.Schema.Types.ObjectId,
-        ref:'Students',
+        ref:'Student',
     
 }]
     
@@ -22,6 +22,6 @@ const InterviewSchema = new mongoose.Schema({
 });
 
 
-const Interviews = mongoose.model('Interviews',InterviewSchema);
+const Interviews = mongoose.model('Interview',InterviewSchema);
 
 module.exports=Interviews;

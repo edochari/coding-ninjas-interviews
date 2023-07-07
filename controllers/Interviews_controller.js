@@ -4,9 +4,11 @@ const Students = require('../models/students');
 
 
 module.exports.Interviews = async function(req,res){
-    let Interview = await Interviews.find({}).populate(
-        'Students'
-        ).exec();
+    try{
+        let Interview = await Interviews.find({})
+          .populate('students').exec();
+     
+        
     console.log("populate",Interview);
     let Student = await Students.find({});
    
@@ -15,6 +17,11 @@ module.exports.Interviews = async function(req,res){
         Interviews:Interview,
         students:Student,
     })
+    }catch(err){
+        console.log("Error in interview controller",err);
+        return ;
+    }
+    
 }
 
 module.exports.create = async function(req,res){
@@ -24,8 +31,11 @@ module.exports.create = async function(req,res){
         });
         if(Interview){
             let Student = await Students.findById(req.body.Students);
-            Interview.Students.push(Student);
-            Interview.save();
+            // if(Student){
+            //     Interview.Students.push(Student);
+            //     Interview.save();
+            // }
+           
         }
         else
         {
@@ -34,8 +44,8 @@ module.exports.create = async function(req,res){
             });
             let Student = await Students.findById(req.body.Students);
             console.log("Student",Interview);
-            Interview.Students.push(Student);
-            Student.Interviews.push(Interview);
+            Interview.students.push(Student);
+            Student.interviews.push(Interview);
             Student.save();
             Interview.save();
         }

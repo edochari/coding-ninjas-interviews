@@ -3,9 +3,10 @@
         <li>
             <% for(interview of Interviews){%>
                 <%= interview.companyName %>
-                <% for(let student of interview.Students){%>
-                    <%= student.n%>
-                <%}%>
+                <% for(student of interview.students){%>
+                    <%= student.name %>
+                    <%}%>
+              
                 
                 
             <%}%>

@@ -18,9 +18,9 @@ const studentSchema = new mongoose.Schema({
     ReactFinalScore:{
         type:Number,
     },
-    Interviews:[{
+    interviews:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'Interviews',
+        ref:'Interview',
     }],
     
 },{
@@ -28,6 +28,6 @@ const studentSchema = new mongoose.Schema({
 });
 
 
-const Students = mongoose.model('Students',studentSchema);
+const Students = mongoose.model('Student',studentSchema);
 
 module.exports=Students;

@@ -10,5 +10,5 @@ db.once('open',function(){
     console.log("MongoDB is connected");
 })
 
-
+// mongoose.set('debug',true);
 module.exports=db;
