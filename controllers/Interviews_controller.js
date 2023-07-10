@@ -7,7 +7,7 @@ module.exports.Interviews = async function(req,res){
     try{
         let Interview = await Interviews.find({})
           .populate('students').exec();
-     
+    
         
     console.log("populate",Interview);
     let Student = await Students.find({});
@@ -31,10 +31,11 @@ module.exports.create = async function(req,res){
         });
         if(Interview){
             let Student = await Students.findById(req.body.Students);
-            // if(Student){
-            //     Interview.Students.push(Student);
-            //     Interview.save();
-            // }
+            console.log("Students",Student);
+            if(Student){
+                Interview.Students.push(Student);
+                Interview.save();
+            }
            
         }
         else
@@ -49,11 +50,6 @@ module.exports.create = async function(req,res){
             Student.save();
             Interview.save();
         }
-        
-       
-        
-        
-
         console.log("Interview successfully created");
         return res.redirect('/students/Interviews');
     }catch(err){

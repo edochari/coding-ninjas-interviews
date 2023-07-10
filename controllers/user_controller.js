@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
+const Students = require('../models/students');
 
 module.exports.signUp = function(req,res){
     return res.render("signup",{
@@ -7,11 +8,22 @@ module.exports.signUp = function(req,res){
     });
 }
 
-module.exports.students = function(req,res){
-    return res.render('students',{
-        title:'students details'
-    })
+module.exports.profile = async function(req,res){
+    let Student = await Students.find({});
+    
+     return res.render('students',{
+         title:'students',
+         students:Student,
+     })
+ }
+
+
+module.exports.createSession = function (req, res) {
+   
+    
+   return res.redirect('/users/profile');
 }
+
 
 module.exports.create = async function(req,res){
     try{

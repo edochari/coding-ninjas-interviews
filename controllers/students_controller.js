@@ -10,14 +10,7 @@ module.exports.create = async function(req,res){
         
     })
 }
-module.exports.StudentsPage = async function(req,res){
-   let Student = await Students.find({}).clone();
-   
-    return res.render('students',{
-        title:'students',
-        students:Student,
-    })
-}
+
 
 module.exports.exportStudent = async function(req,res){
     try{
@@ -35,13 +28,12 @@ module.exports.exportStudent = async function(req,res){
       
         
         
-       const csvFields=['Name','Batch','DSA Final Score','Web Dev Final Score','React Final Score'];
+       const csvFields=['name','batch','DSAFinalScore','WebDevFinalScore','ReactFinalScore'];
        const csvParse = new csvParser({ fields: csvFields, includeEmptyRows: true }); 
       
        
        const csvData = csvParse.parse(Student_Array);
-       console.log(csvData);
-       console.log(csvParse);
+      
        res.setHeader("Content-Type","text/csv");
        res.setHeader("Content-Disposition","attachment : filename=StudentsData.csv");
        res.status(200).end(csvData);

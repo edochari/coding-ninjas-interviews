@@ -1,0 +1,8 @@
+.students-page {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .students-page .students-list-container {
+    height: 50rem;
+    width: 50rem;
+    display: flex; }

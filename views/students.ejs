@@ -1,14 +1,22 @@
-<h1>Students</h1>
+<link rel="stylesheet" href="/css/profile.css">
+
+<div class="students-page">
+
+<h1 class="students-heading">Students</h1>
 <div class="students-list-container">
     <ul>
-        <li>
+        
+        
             <% for(student of students){ %>
+                <div class="student">
                 <%= student.name %>
-                <%= student.batch %>
+                </div>
+                
             <% } %>
-
-        </li>
+      
+    
     </ul>
+    
     <form action="/students/create" method="POST">
        <input type="text" placeholder="Enter name" name="name" />
        <input type="text" placeholder="Enter batch" name="batch" />
@@ -19,8 +27,9 @@
        
        <button type="submit">Submit</button>
     </form>
-
+     <a href="/users/sign-out">Sign out</a>
     <a href="/jobs">Search Jobs</a>
     <a href="/students/Interviews" >Create Interview</a>
     <a href="/students/export">Export CSV</a>
+</div>
 </div>
